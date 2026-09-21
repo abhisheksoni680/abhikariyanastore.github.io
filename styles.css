@@ -41,7 +41,12 @@ nav a:hover{color:var(--green)}
 .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin:30px 0 20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 20px;border-radius:13px;font-weight:800;transition:.25s;border:1px solid transparent}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--gold);color:#163522;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.btn-primary{
+  background:linear-gradient(135deg,#f4d06f,#d6a83b);
+  color:#123322;
+  box-shadow:0 12px 28px rgba(214,168,59,.28);
+  border:1px solid rgba(255,255,255,.25);
+}
 .btn-outline{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.08)}
 .hero-note{font-size:.9rem;color:rgba(255,255,255,.72)}
 .hero-note span{color:#f4d06f;font-weight:800}
@@ -141,4 +146,10 @@ footer{background:#052b1c;color:rgba(255,255,255,.65);padding:28px 0}
   .contact-box{padding:30px 22px}
   .contact-item{min-width:100%}
   .footer{flex-direction:column;align-items:flex-start}
+}
+.manager-name{
+  margin-top:10px;
+  color:var(--green);
+  font-size:1rem;
+  letter-spacing:.3px;
 }
