@@ -23,13 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.text())
     .then(csv => {
 
-      const rows = csv.trim().split(/\r?\n/).map(row => {
-        return row.split(',').map(cell => cell.trim().replace(/^"|"$/g, ''));
-      });
+      const rows = csv.trim().split(/\r?\n/).map(row =>
+        row.split(',').map(cell =>
+          cell.trim().replace(/^"|"$/g, '')
+        )
+      );
 
       if (rows.length < 2) return;
 
-      const headers = rows[0].map(h => h.toLowerCase());
+      const headers = rows[0].map(h => h.toLowerCase().trim());
 
       const productIndex = headers.indexOf('product');
       const rateIndex = headers.indexOf('rate');
@@ -37,30 +39,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (productIndex === -1 || rateIndex === -1) return;
 
-      const ratesSection = document.querySelector('#rates .product-grid');
+      // Front Sugar Rate
+      const frontSugarRate =
+        document.querySelector('#front-sugar-rate');
 
-      if (!ratesSection) return;
+      // Rates section
+      const ratesSection =
+        document.querySelector('#rates .product-grid');
 
-      ratesSection.innerHTML = '';
+      // Find Sugar
+      const sugarRow = rows.slice(1).find(row =>
+        row[productIndex] &&
+        row[productIndex].trim().toLowerCase() === 'sugar'
+      );
 
-      rows.slice(1).forEach(row => {
+      // Update front notification
+      if (sugarRow && frontSugarRate) {
+        const sugarRate = sugarRow[rateIndex];
+        const sugarUnit =
+          unitIndex !== -1 ? sugarRow[unitIndex] : 'kg';
 
-        const product = row[productIndex];
-        const rate = row[rateIndex];
-        const unit = unitIndex !== -1 ? row[unitIndex] : '';
+        frontSugarRate.textContent =
+          `₹${sugarRate}/${sugarUnit}`;
+      }
 
-        if (!product || !rate) return;
+      // Update Rates section
+      if (ratesSection) {
 
-        const card = document.createElement('div');
-        card.className = 'product-card';
+        ratesSection.innerHTML = '';
 
-        card.innerHTML = `
-          <h3>${product}</h3>
-          <p><strong>₹${rate}/${unit}</strong></p>
-        `;
+        rows.slice(1).forEach(row => {
 
-        ratesSection.appendChild(card);
-      });
+          const product = row[productIndex];
+          const rate = row[rateIndex];
+          const unit =
+            unitIndex !== -1 ? row[unitIndex] : '';
+
+          if (!product || !rate) return;
+
+          const card = document.createElement('div');
+          card.className = 'product-card';
+
+          card.innerHTML = `
+            <h3>${product}</h3>
+            <p><strong>₹${rate}/${unit}</strong></p>
+          `;
+
+          ratesSection.appendChild(card);
+        });
+      }
 
     })
     .catch(error => {
