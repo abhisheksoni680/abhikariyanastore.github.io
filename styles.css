@@ -860,3 +860,21 @@ footer{
     align-items:flex-start;
   }
 }
+.rate-notification {
+  background: #fff8df;
+  border: 2px solid #d4af37;
+  color: #174a2c;
+  padding: 14px 20px;
+  margin: 15px auto;
+  max-width: 900px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.rate-notification div {
+  display: inline-block;
+  margin: 0 15px;
+}
