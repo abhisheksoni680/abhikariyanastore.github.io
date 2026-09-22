@@ -32,6 +32,7 @@ body{
   color:var(--ink);
   background:var(--cream);
   line-height:1.65;
+  overflow-x:hidden;
 }
 
 a{
@@ -394,11 +395,17 @@ h2{
 .about-pills{
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   gap:10px;
   margin-top:27px;
 }
 
 .about-pills span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  max-width:100%;
   background:#fff;
   color:var(--green);
   padding:9px 14px;
@@ -407,6 +414,8 @@ h2{
   font-weight:700;
   border:1px solid var(--border);
   box-shadow:0 5px 15px rgba(4,41,28,.05);
+  white-space:normal;
+  text-align:center;
 }
 
 .info-card{
@@ -526,6 +535,32 @@ h2{
   background:#eef8f2;
   padding:7px 11px;
   border-radius:999px;
+}
+
+/* ================= RATE NOTIFICATION ================= */
+
+.rate-notification{
+  background:#fff8df;
+  border:2px solid #d4af37;
+  color:#174a2c;
+  padding:14px 20px;
+  margin:15px auto;
+  max-width:900px;
+  width:calc(100% - 30px);
+  border-radius:12px;
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.rate-notification strong{
+  display:inline;
+}
+
+.rate-notification div{
+  display:inline-block;
+  margin:0 15px;
 }
 
 /* ================= TIMINGS ================= */
@@ -810,12 +845,31 @@ footer{
     flex-direction:column;
     align-items:flex-start;
   }
+
+  .about-pills{
+    justify-content:center;
+  }
 }
 
 @media(max-width:560px){
 
   .container{
-    width:min(94%,1120px);
+    width:94%;
+  }
+
+  .nav{
+    min-height:68px;
+  }
+
+  .brand{
+    gap:8px;
+    font-size:.82rem;
+  }
+
+  .brand img{
+    width:43px;
+    height:43px;
+    border-radius:12px;
   }
 
   .hero{
@@ -830,6 +884,23 @@ footer{
     font-size:1rem;
   }
 
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .poster-frame{
+    padding:8px;
+  }
+
+  .poster-frame img{
+    max-width:100%;
+  }
+
   .section{
     padding:80px 0;
   }
@@ -839,12 +910,34 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .product-card{
+    padding:25px;
+  }
+
   .trust-grid{
     grid-template-columns:1fr 1fr;
   }
 
   .trust-grid div{
     padding:18px 10px;
+  }
+
+  .about-pills{
+    gap:8px;
+    justify-content:center;
+  }
+
+  .about-pills span{
+    width:auto;
+    max-width:100%;
+    padding:8px 12px;
+    font-size:.78rem;
+  }
+
+  .rate-notification{
+    width:calc(100% - 20px);
+    padding:12px 10px;
+    font-size:16px;
   }
 
   .contact-box{
@@ -860,21 +953,52 @@ footer{
     align-items:flex-start;
   }
 }
-.rate-notification {
-  background: #fff8df;
-  border: 2px solid #d4af37;
-  color: #174a2c;
-  padding: 14px 20px;
-  margin: 15px auto;
-  max-width: 900px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+/* Order Ahead - Customer Facility */
+#order-ahead {
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
-.rate-notification div {
+#order-ahead .order-ahead-card {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  background: #f1f8f4;
+  border: 1px solid #d8e9df;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 70, 45, 0.08);
+}
+
+#order-ahead .order-ahead-card h2 {
+  margin: 0 0 12px;
+}
+
+#order-ahead .order-tagline {
+  margin: 0 0 12px;
+}
+
+#order-ahead .order-ahead-card > p:not(.order-tagline):not(.order-steps):not(.order-note) {
+  margin: 0 auto 20px;
+  max-width: 700px;
+}
+
+#order-ahead .order-ahead-card .btn {
   display: inline-block;
-  margin: 0 15px;
+  margin: 5px 0 16px;
+}
+
+#order-ahead .order-steps {
+  margin: 4px 0 12px;
+  font-weight: 600;
+}
+
+#order-ahead .order-note {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+#order-ahead .order-ahead-card small {
+  display: block;
+  opacity: 0.75;
 }

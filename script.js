@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
   // Google Sheet Rates
   const sheetUrl =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxDCHLgWiqVdFMH1yGBN3raT9ccoA3rJ0y7HxD28NVHWWnbgJNnfQe1PLRXX9S13TMsaZYkIoHczuu/pub?output=csv';
@@ -39,19 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (productIndex === -1 || rateIndex === -1) return;
 
+
       // Front Sugar Rate
       const frontSugarRate =
         document.querySelector('#front-sugar-rate');
 
+
       // Rates section
       const ratesSection =
         document.querySelector('#rates .product-grid');
+
 
       // Find Sugar
       const sugarRow = rows.slice(1).find(row =>
         row[productIndex] &&
         row[productIndex].trim().toLowerCase() === 'sugar'
       );
+
 
       // Update front notification
       if (sugarRow && frontSugarRate) {
@@ -62,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         frontSugarRate.textContent =
           `₹${sugarRate}/${sugarUnit}`;
       }
+
 
       // Update Rates section
       if (ratesSection) {
@@ -93,5 +99,57 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => {
       console.log('Rates could not be loaded:', error);
     });
+
+
+  // Store Open / Closed Status
+  function updateStoreStatus() {
+
+    const statusElement =
+      document.querySelector('#store-status');
+
+    if (!statusElement) return;
+
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinutes = now.getMinutes();
+
+    const currentTime =
+      currentHour * 60 + currentMinutes;
+
+
+    // Summer timing: 6:00 AM - 10:00 PM
+    // Winter timing: 6:00 AM - 9:30 PM
+
+    const month = now.getMonth() + 1;
+
+    let openingTime = 6 * 60;
+    let closingTime;
+
+    // October to March = Winter
+    if (month >= 10 || month <= 3) {
+      closingTime = 21 * 60 + 30;
+    } else {
+      closingTime = 22 * 60;
+    }
+
+
+    if (currentTime >= openingTime && currentTime < closingTime) {
+
+      statusElement.innerHTML =
+        `🟢 <strong>OPEN NOW</strong><br><span>Closes at ${closingTime === 22 * 60 ? '10:00 PM' : '9:30 PM'}</span>`;
+    } else {
+
+      statusElement.innerHTML =
+        '🔴 <strong>CLOSED NOW</strong>';
+
+    }
+  }
+
+
+  // Check status immediately
+  updateStoreStatus();
+
+  // Update status every minute
+  setInterval(updateStoreStatus, 60000);
 
 });
