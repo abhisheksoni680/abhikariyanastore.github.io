@@ -1002,3 +1002,61 @@ footer{
   display: block;
   opacity: 0.75;
 }
+/* =========================
+   FESTIVAL BANNER
+   ========================= */
+
+.festival-banner {
+  margin: 0;
+  padding: 22px 20px;
+  background: linear-gradient(135deg, #fff4d6, #ffe3a3);
+  border-bottom: 1px solid #f1d28a;
+}
+
+.festival-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.festival-icon {
+  font-size: 42px;
+  flex-shrink: 0;
+}
+
+.festival-small {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+}
+
+.festival-content h2 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.festival-content p:last-child {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .festival-content {
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .festival-icon {
+    font-size: 34px;
+  }
+
+  .festival-content h2 {
+    font-size: 23px;
+  }
+}

@@ -494,4 +494,101 @@ document.addEventListener('DOMContentLoaded', () => {
     60000
   );
 
-});
+}); // =========================
+// AUTOMATIC FESTIVAL BANNER
+// =========================
+
+(function () {
+
+  const banner = document.querySelector('#festival-banner');
+  const icon = document.querySelector('#festival-icon');
+  const small = document.querySelector('#festival-small');
+  const title = document.querySelector('#festival-title');
+  const message = document.querySelector('#festival-message');
+
+  if (!banner || !icon || !small || !title || !message) {
+    return;
+  }
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+
+  let festival = null;
+  
+  // Republic Day
+  if (month === 1 && day === 26) {
+    festival = {
+      icon: '🇮🇳',
+      small: 'REPUBLIC DAY',
+      title: 'Happy Republic Day!',
+      message: 'Warm wishes from ABHI KARIYANA STORE.'
+    };
+  }
+
+  // Holi — 2026: March 4
+  else if (year === 2026 && month === 3 && day === 4) {
+    festival = {
+      icon: '🌈',
+      small: 'HAPPY HOLI',
+      title: 'Happy Holi!',
+      message: 'Wishing you and your family a colourful and joyful Holi.'
+    };
+  }
+
+  // Independence Day
+  else if (month === 8 && day === 15) {
+    festival = {
+      icon: '🇮🇳',
+      small: 'INDEPENDENCE DAY',
+      title: 'Happy Independence Day!',
+      message: 'Warm wishes from ABHI KARIYANA STORE.'
+    };
+  }
+
+  // Dussehra — 2026: October 20
+  else if (year === 2026 && month === 10 && day === 20) {
+    festival = {
+      icon: '🏹',
+      small: 'HAPPY DUSSEHRA',
+      title: 'Happy Dussehra!',
+      message: 'Wishing you happiness, peace and prosperity.'
+    };
+  }
+
+  // Diwali — 2026: November 8
+  else if (year === 2026 && month === 11 && day === 8) {
+    festival = {
+      icon: '🪔',
+      small: 'HAPPY DIWALI',
+      title: 'Happy Diwali!',
+      message: 'Wishing you and your family happiness, health and prosperity.'
+    };
+  }
+
+  // New Year
+  else if (month === 1 && day === 1) {
+    festival = {
+      icon: '🎉',
+      small: 'HAPPY NEW YEAR',
+      title: 'Happy New Year!',
+      message: 'Warm wishes from ABHI KARIYANA STORE.'
+    };
+  }
+
+  // Show festival banner only on festival days
+  if (festival) {
+
+    icon.textContent = festival.icon;
+    small.textContent = festival.small;
+    title.textContent = festival.title;
+    message.textContent = festival.message;
+
+  } else {
+
+    banner.style.display = 'none';
+
+  }
+
+})();
