@@ -453,12 +453,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
 
       closingTime =
-        21 * 60 + 30;
+  20 * 60 + 30;
 
-    } else {
+} else {
 
-      closingTime =
-        22 * 60;
+  closingTime =
+    21 * 60 + 30;
 
     }
 
@@ -471,9 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
       statusElement.innerHTML =
         `🟢 <strong>OPEN NOW</strong><br>
         <span>Closes at ${
-          closingTime === 22 * 60
-            ? '9:30 PM'
-            : '8:30 PM'
+          closingTime === 21 * 60 + 30
+  ? '9:30 PM'
+  : '8:30 PM'
         }</span>`;
 
     } else {
