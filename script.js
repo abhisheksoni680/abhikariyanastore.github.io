@@ -592,3 +592,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 })();
+// ===============================
+// LAST UPDATED DATE
+// ===============================
+fetch('https://api.github.com/repos/abhisheksoni680/abhikariyanastore.github.io/commits?per_page=1')
+  .then(response => response.json())
+  .then(data => {
+    if (data && data[0] && data[0].commit) {
+      const date = new Date(data[0].commit.committer.date);
+
+      const options = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      };
+
+      const formattedDate = date.toLocaleDateString('en-IN', options);
+
+      const lastUpdated = document.getElementById('last-updated');
+
+      if (lastUpdated) {
+        lastUpdated.textContent = formattedDate;
+      }
+    }
+  })
+  .catch(() => {
+    const lastUpdated = document.getElementById('last-updated');
+
+    if (lastUpdated) {
+      lastUpdated.textContent = 'Recently updated';
+    }
+  });
