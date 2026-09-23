@@ -472,8 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `🟢 <strong>OPEN NOW</strong><br>
         <span>Closes at ${
           closingTime === 22 * 60
-            ? '10:00 PM'
-            : '9:30 PM'
+            ? '9:30 PM'
+            : '8:30 PM'
         }</span>`;
 
     } else {
