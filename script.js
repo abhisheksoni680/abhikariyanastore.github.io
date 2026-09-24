@@ -623,3 +623,71 @@ fetch('https://api.github.com/repos/abhisheksoni680/abhikariyanastore.github.io/
       lastUpdated.textContent = 'Recently updated';
     }
   });
+// ===============================
+// CUSTOMER REQUEST FORM
+// ===============================
+
+const customerRequestForm =
+  document.getElementById('customer-request-form');
+
+if (customerRequestForm) {
+  customerRequestForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const requestInput =
+      document.getElementById('customer-request');
+
+    const message =
+      document.getElementById('request-message');
+
+    const submitButton =
+      customerRequestForm.querySelector('button[type="submit"]');
+
+    const request =
+      requestInput.value.trim();
+
+    if (!request) {
+      message.textContent = 'Please enter your request.';
+      return;
+    }
+
+    const webAppUrl =
+      'https://script.google.com/macros/s/AKfycbzi51hedqYfN174zdAJ3xAycvOvbTmdFHMyVEmvELVCtChOw7rXZzElOtJAMczAibQb/exec';
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    try {
+      await fetch(webAppUrl, {
+        method: 'POST',
+        body: JSON.stringify({
+          request: request
+        })
+      });
+
+      requestInput.value = '';
+
+      message.textContent =
+        '✓ Request submitted successfully! Thank you.';
+
+      message.style.color = '#0b6b45';
+
+      setTimeout(function () {
+        message.textContent = '';
+      }, 2000);
+
+    } catch (error) {
+
+      message.textContent =
+        'Something went wrong. Please try again.';
+
+      message.style.color = '#b00020';
+
+    } finally {
+
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit Request';
+
+    }
+  });
+}

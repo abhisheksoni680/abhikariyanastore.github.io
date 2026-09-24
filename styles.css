@@ -999,7 +999,7 @@ footer{
 }
 
 #order-ahead .order-ahead-card small {
-  display: block;
+  display: none;
   opacity: 0.75;
 }
 /* =========================
@@ -1122,4 +1122,166 @@ footer{
 .contact-item .fa-phone {
   color: #ffffff;
   font-size: 23px;
+}
+/* ===============================
+   CUSTOMER REQUEST SECTION
+   =============================== */
+
+.rates-heading-row {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+
+/* Customer Request Box */
+.customer-request-box {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(145deg, #ffffff, #f4faf7);
+  border: 1px solid #cfe3d8;
+  border-top: 5px solid #0b6b45;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(11, 107, 69, 0.13);
+  box-sizing: border-box;
+}
+
+
+/* Heading */
+.customer-request-box h3 {
+  margin: 0 0 7px;
+  color: #0b6b45;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+
+/* Description */
+.customer-request-box p {
+  margin: 0 0 12px;
+  color: #5f6b65;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+
+/* Form */
+.customer-request-box form {
+  margin: 0;
+}
+
+
+/* Text Area */
+.customer-request-box textarea {
+  width: 100%;
+  height: 62px;
+  padding: 10px 11px;
+  background: #ffffff;
+  border: 1px solid #cbdcd3;
+  border-radius: 10px;
+  resize: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: #333333;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.customer-request-box textarea::placeholder {
+  color: #89968f;
+}
+
+.customer-request-box textarea:focus {
+  outline: none;
+  border-color: #0b6b45;
+  box-shadow: 0 0 0 3px rgba(11, 107, 69, 0.09);
+}
+
+
+/* Submit Button */
+.customer-request-box button {
+  margin-top: 9px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0b6b45, #16865b);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 13px rgba(11, 107, 69, 0.20);
+  transition: all 0.2s ease;
+}
+
+.customer-request-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 17px rgba(11, 107, 69, 0.25);
+}
+
+.customer-request-box button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+
+/* ===============================
+   SUCCESS POPUP
+   =============================== */
+
+#request-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  margin: 0;
+  padding: 18px 28px;
+  background: #ffffff;
+  color: #0b6b45;
+  border: 2px solid #0b6b45;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 280px;
+  animation: requestSuccessPop 0.25s ease-out;
+}
+
+#request-message:empty {
+  display: none !important;
+}
+
+@keyframes requestSuccessPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (max-width: 768px) {
+
+  .rates-heading-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .customer-request-box {
+    width: 100%;
+  }
+
 }
