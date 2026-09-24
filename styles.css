@@ -1113,3 +1113,9 @@ footer{
 #rates-load-more::after {
   content: none !important;
 }
+.gmail-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
