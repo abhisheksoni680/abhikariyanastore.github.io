@@ -1306,5 +1306,5 @@ footer{
 }
 /* Reduce only the top empty space before Rates heading */
 #rates.section {
-  padding-top: 10px !important;
+  padding-top: 55px !important;
 }
