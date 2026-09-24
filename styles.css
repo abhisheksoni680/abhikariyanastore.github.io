@@ -1295,7 +1295,7 @@ footer{
   align-items: center;
 }
 #rates .rates-heading-row {
-  margin-bottom: 0 !important;
+  margin-bottom: 16 !important;
 }
 
 #rates .product-grid {
@@ -1306,5 +1306,5 @@ footer{
 }
 /* Reduce only the top empty space before Rates heading */
 #rates.section {
-  padding-top: 55px !important;
+  padding-top: 10px !important;
 }
