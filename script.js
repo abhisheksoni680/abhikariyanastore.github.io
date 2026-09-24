@@ -631,7 +631,7 @@ const customerRequestForm =
   document.getElementById('customer-request-form');
 
 if (customerRequestForm) {
-  customerRequestForm.addEventListener('submit', async function (e) {
+  customerRequestForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const requestInput =
@@ -655,39 +655,31 @@ if (customerRequestForm) {
       'https://script.google.com/macros/s/AKfycbzi51hedqYfN174zdAJ3xAycvOvbTmdFHMyVEmvELVCtChOw7rXZzElOtJAMczAibQb/exec';
 
     submitButton.disabled = true;
-    submitButton.textContent = 'Submitting...';
+    submitButton.textContent = 'Submitted ✓';
 
-    try {
-      await fetch(webAppUrl, {
-        method: 'POST',
-        body: JSON.stringify({
-          request: request
-        })
-      });
+    requestInput.value = '';
 
-      requestInput.value = '';
+    message.textContent =
+      '✓ Request submitted successfully! Thank you.';
 
-      message.textContent =
-        '✓ Request submitted successfully! Thank you.';
+    message.style.color = '#0b6b45';
 
-      message.style.color = '#0b6b45';
+    setTimeout(function () {
+      message.textContent = '';
+    }, 2000);
 
-      setTimeout(function () {
-        message.textContent = '';
-      }, 2000);
+    fetch(webAppUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        request: request
+      })
+    }).catch(function () {
+      console.log('Request sending failed.');
+    });
 
-    } catch (error) {
-
-      message.textContent =
-        'Something went wrong. Please try again.';
-
-      message.style.color = '#b00020';
-
-    } finally {
-
+    setTimeout(function () {
       submitButton.disabled = false;
       submitButton.textContent = 'Submit Request';
-
-    }
+    }, 800);
   });
 }
