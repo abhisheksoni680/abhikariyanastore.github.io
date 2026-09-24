@@ -1119,3 +1119,7 @@ footer{
   object-fit: contain;
   display: block;
 }
+.contact-item .fa-phone {
+  color: #ffffff;
+  font-size: 23px;
+}
