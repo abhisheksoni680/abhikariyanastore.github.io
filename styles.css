@@ -1089,3 +1089,27 @@ footer{
   line-height: 1.4;
   opacity: 0.75;
 }
+/* Attractive Rates Button */
+#rates-load-more {
+  display: block;
+  margin: 28px auto 0;
+  padding: 12px 24px;
+  border: 1px solid #0b6b45;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0b6b45;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#rates-load-more:hover {
+  background: #0b6b45;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+#rates-load-more::before,
+#rates-load-more::after {
+  content: none !important;
+}

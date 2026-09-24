@@ -254,14 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
 
           loadMoreButton.textContent =
-            '➖ Show Less';
+  '⌃ Show Less';
 
-        } else {
+} else {
 
-          loadMoreButton.textContent =
-            '➕ View More Rates';
+  loadMoreButton.textContent =
+    '⌄ View More Rates';
 
-        }
+}
       }
 
 
@@ -382,8 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             // VIEW MORE
-            visibleCount +=
-              ITEMS_PER_PAGE;
+            visibleCount =
+              allRateItems.length;
 
 
             updateRates();
