@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sheetUrl =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxDCHLgWiqVdFMH1yGBN3raT9ccoA3rJ0y7HxD28NVHWWnbgJNnfQe1PLRXX9S13TMsaZYkIoHczuu/pub?output=csv';
 
-  const ITEMS_PER_PAGE = 6;
+  const ITEMS_PER_PAGE = 8;
 
   let allRateItems = [];
   let visibleCount = ITEMS_PER_PAGE;
