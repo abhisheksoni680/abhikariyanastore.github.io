@@ -1285,3 +1285,9 @@ footer{
   }
 
 }
+#rates.section {
+  padding-top: 55px !important;
+}
+#rates .rates-heading-row {
+  margin-bottom: 16px !important;
+}
