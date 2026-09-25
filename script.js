@@ -579,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Show festival banner only on festival days
   if (festival) {
-
+    banner.style.display = 'block';
     icon.textContent = festival.icon;
     small.textContent = festival.small;
     title.textContent = festival.title;
@@ -682,4 +682,7 @@ if (customerRequestForm) {
       submitButton.textContent = 'Submit Request';
     }, 800);
   });
+}
+#festival-banner {
+  display: none !important;
 }
