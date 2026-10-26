@@ -1371,3 +1371,9 @@ footer{
     font-size:14px;
   }
 }
+@media (max-width:560px){
+  .contact-actions a[href^="tel:"]{
+    width:100%;
+    box-sizing:border-box;
+  }
+}
