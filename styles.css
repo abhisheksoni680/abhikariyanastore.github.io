@@ -1373,7 +1373,13 @@ footer{
 }
 @media (max-width:560px){
   .contact-actions a[href^="tel:"]{
-    width:100%;
-    box-sizing:border-box;
+    width:100% !important;
+    max-width:none !important;
+    justify-self:stretch;
+  }
+
+  .contact-actions a[href^="tel:"] > div{
+    min-width:0;
+    flex:1;
   }
 }
