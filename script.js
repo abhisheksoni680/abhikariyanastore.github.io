@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.product.toLowerCase().includes(searchTerm)
     );
 
-    renderRates(filteredItems.slice(0, 1));
+    renderRates(filteredItems);
     updateButton(filteredItems.length, true);
     return;
   }
