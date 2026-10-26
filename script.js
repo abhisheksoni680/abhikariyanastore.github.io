@@ -270,54 +270,28 @@ document.addEventListener('DOMContentLoaded', () => {
       // =========================
 
       function updateRates() {
+  const searchTerm = searchInput
+    ? searchInput.value.trim().toLowerCase()
+    : '';
 
-        const searchTerm =
-          searchInput
-            ? searchInput.value
-                .trim()
-                .toLowerCase()
-            : '';
+  if (searchTerm !== '') {
+    const filteredItems = allRateItems.filter(item =>
+      item.product &&
+      item.product.toLowerCase().includes(searchTerm)
+    );
 
+    renderRates(filteredItems.slice(0, 1));
+    updateButton(filteredItems.length, true);
+    return;
+  }
 
-        // SEARCH MODE
-        if (searchTerm !== '') {
-
-          const filteredItems =
-            allRateItems.filter(item =>
-              item.product
-                .toLowerCase()
-                .includes(searchTerm)
-            );
-
-
-          renderRates(filteredItems);
-
-          updateButton(
-            filteredItems.length,
-            true
-          );
-
-          return;
-        }
+  const itemsToShow = allRateItems.slice(0, visibleCount);
+  renderRates(itemsToShow);
+  updateButton(allRateItems.length, false);
+}
 
 
-        // NORMAL MODE
-        const itemsToShow =
-          allRateItems.slice(
-            0,
-            visibleCount
-          );
-
-
-        renderRates(itemsToShow);
-
-
-        updateButton(
-          allRateItems.length,
-          false
-        );
-      }
-
+          
 
       // =========================
       // SEARCH

@@ -1291,3 +1291,55 @@ footer{
 #rates .rates-heading-row {
   margin-bottom: 16px !important;
 }
+/* Compact Daily Market Rates Search */
+.rate-search-box {
+  width: min(420px, 92%);
+  margin: 16px auto 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #dce9df;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(5, 65, 43, 0.08);
+  box-sizing: border-box;
+}
+
+.rate-search-box:focus-within {
+  border-color: #08784e;
+  box-shadow: 0 0 0 3px rgba(8, 120, 78, 0.1);
+}
+
+.rate-search-icon {
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.rate-search-box input[type="search"] {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 9px 2px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #073d2b;
+  font: inherit;
+  font-size: 14px;
+}
+
+.rate-search-box input[type="search"]::placeholder {
+  color: #7a8b82;
+}
+
+.rate-search-tag {
+  padding: 6px 8px;
+  border-radius: 7px;
+  background: #e8f4ec;
+  color: #08784e;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
