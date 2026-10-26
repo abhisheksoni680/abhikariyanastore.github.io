@@ -1365,3 +1365,9 @@ footer{
   letter-spacing: 0.4px;
   white-space: nowrap;
 }
+@media (max-width:560px){
+  .contact-actions a[href^="tel:"] strong{
+    white-space:nowrap;
+    font-size:14px;
+  }
+}
