@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================
 
   const sheetUrl =
-    https://docs.google.com/spreadsheets/d/e/2PACX-1vQxDCHLgWiqVdFMH1yGBN3raT9ccoA3rJ0y7HxD28NVHWWnbgJNnfQe1PLRXX9S13TMsaZYkIoHczuu/pubhtml
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxDCHLgWiqVdFMH1yGBN3raT9ccoA3rJ0y7HxD28NVHWWnbgJNnfQe1PLRXX9S13TMsaZYkIoHczuu/pub?output=csv';
 
   const ITEMS_PER_PAGE = 8;
 
@@ -270,28 +270,54 @@ document.addEventListener('DOMContentLoaded', () => {
       // =========================
 
       function updateRates() {
-  const searchTerm = searchInput
-    ? searchInput.value.trim().toLowerCase()
-    : '';
 
-  if (searchTerm !== '') {
-    const filteredItems = allRateItems.filter(item =>
-      item.product &&
-      item.product.toLowerCase().includes(searchTerm)
-    );
-
-    renderRates(filteredItems);
-    updateButton(filteredItems.length, true);
-    return;
-  }
-
-  const itemsToShow = allRateItems.slice(0, visibleCount);
-  renderRates(itemsToShow);
-  updateButton(allRateItems.length, false);
-}
+        const searchTerm =
+          searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : '';
 
 
-          
+        // SEARCH MODE
+        if (searchTerm !== '') {
+
+          const filteredItems =
+            allRateItems.filter(item =>
+              item.product
+                .toLowerCase()
+                .includes(searchTerm)
+            );
+
+
+          renderRates(filteredItems);
+
+          updateButton(
+            filteredItems.length,
+            true
+          );
+
+          return;
+        }
+
+
+        // NORMAL MODE
+        const itemsToShow =
+          allRateItems.slice(
+            0,
+            visibleCount
+          );
+
+
+        renderRates(itemsToShow);
+
+
+        updateButton(
+          allRateItems.length,
+          false
+        );
+      }
+
 
       // =========================
       // SEARCH
